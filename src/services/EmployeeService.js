@@ -8,4 +8,8 @@ export default class EmployeeService {
     addEmployee(requestData) {
         return service.Post('/create', requestData);
     }
+
+    getAllEmployeeData() {
+        return service.get();
+    }
 }
