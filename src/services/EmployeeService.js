@@ -12,4 +12,12 @@ export default class EmployeeService {
     getAllEmployeeData() {
         return service.get();
     }
+
+    updateEmployeeData(requestData) {
+        return service.put('/update/', requestData)
+    }
+
+    deleteEmployeeData(data) {
+        return service.delete('/delete/' + data)
+    }
 }

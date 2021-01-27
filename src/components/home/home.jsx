@@ -19,6 +19,10 @@ export default class Home extends React.Component {
     this.getEmployeeData();
   }
 
+  update = () => {
+    this.getEmployeeData();
+  }
+
   getEmployeeData = () => {
     service.getAllEmployeeData().then(data => {
       this.setState({ employeeArray: data.data.data });
@@ -51,7 +55,7 @@ export default class Home extends React.Component {
           <div className="table-main">
             <table id="diplay" className="table">
               <tbody>
-                <Display employeeArray={this.state.employeeArray} />
+                <Display employeeArray={this.state.employeeArray} callUpdate={this.update}/>
               </tbody>
             </table>
           </div>
