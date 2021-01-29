@@ -10,14 +10,18 @@ export default class EmployeeService {
     }
 
     getAllEmployeeData() {
-        return service.get();
+        return service.get('');
     }
 
-    updateEmployeeData(requestData) {
-        return service.put('/update/', requestData)
+    updateEmployeeData(id, requestData) {
+        return service.put('/update/' + id, requestData)
     }
 
     deleteEmployeeData(data) {
         return service.delete('/delete/' + data)
+    }
+
+    getEmployeeById(id) {
+        return service.get('/get/' + id)
     }
 }

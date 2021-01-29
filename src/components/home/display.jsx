@@ -1,4 +1,4 @@
-import { withRouter } from "react-router-dom"
+import { Link } from "react-router-dom"
 import './home.css';
 import deleteIcon from '../../assets/delete-black-18dp.svg';
 import editIcon from '../../assets/create-black-18dp.svg';
@@ -17,8 +17,7 @@ export default class Display extends React.Component {
   }
 
   updateEmployeeData = (empId) => {
-    // localStorage.setItem('id', empid)
-    service.updateEmployeeData(empId)
+    localStorage.setItem('id', empId)
   }
 
   deleteEmployeeData = (empId) => {
@@ -30,6 +29,7 @@ export default class Display extends React.Component {
       console.log(err);
     })
   }
+
   render() {
     return (
       <table id="table-diplay" className="table">
@@ -45,8 +45,8 @@ export default class Display extends React.Component {
           </tr>
           {
             this.props.employeeArray && this.props.employeeArray.map((element, ind) => (
-              <tr key={ind}>
-                <td><img className="profile" src={profile} alt="image" /></td>
+              <tr key={element.employeeId}>
+                <td><img className="profile" src={element.profilePic} alt="image" /></td>
                 <td>{element.name}</td>
                 <td>{element.gender}</td>
                 <td>{element.department && element.department.map(dept => (
@@ -55,7 +55,8 @@ export default class Display extends React.Component {
                 <td>{element.salary}</td>
                 <td>{element.startDate}</td>
                 <td><img onClick={() => this.deleteEmployeeData(element.employeeId)} src={deleteIcon} alt="delete" />
-                  <img onClick={() => this.updateEmployeeData(element.employeeId)} src={editIcon} alt="edit" />
+                  <Link to="update"> <img onClick={() => this.updateEmployeeData(element.employeeId)} src={editIcon} alt="edit" />
+                  </Link>
                 </td>
               </tr>
             ))

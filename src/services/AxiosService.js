@@ -11,8 +11,8 @@ export default class AxiosService {
         })
     }
 
-    get() {
-        return axios.get(baseUrl, {
+    get(url) {
+        return axios.get(baseUrl + url, {
             headers: {
                 contentType: 'application/json'
             }
@@ -20,7 +20,7 @@ export default class AxiosService {
     }
 
     put(url, data) {
-        return axios.put(baseUrl+url, data, {
+        return axios.put(baseUrl + url, data, {
             headers: {
                 contentType: 'application/json'
             }
@@ -28,7 +28,7 @@ export default class AxiosService {
     }
 
     delete(url) {
-        return axios.delete(baseUrl+url, {
+        return axios.delete(baseUrl + url, {
             headers: {
                 contentType: 'application/json'
             }

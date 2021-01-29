@@ -4,20 +4,22 @@ import React from 'react';
 import PayrollForm from './components/payroll-form/payroll-form';
 import Home from './components/home/home';
 
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Update from './components/home/update';
 
 class AppRouter extends React.Component {
-    render () {
-      return (
-        <div className="app-main">
-          <Router>
-            <div className="App">
-              <Route path="/" component={Home} exact></Route>
-              <Route path="/PayrollForm" component={PayrollForm}></Route>
-            </div>
-          </Router>
-        </div>
-      );
-    }
+  render() {
+    return (
+      <div className="app-main">
+        <Router>
+          <div className="App">
+            <Route path="/" component={Home} exact></Route>
+            <Route path="/PayrollForm" component={PayrollForm}></Route>
+            <Route path="/Update" component={Update}></Route>
+          </div>
+        </Router>
+      </div>
+    );
   }
-  export default AppRouter;
+}
+export default AppRouter;

@@ -10,6 +10,7 @@ import { withRouter } from 'react-router-dom'
 
 const employeeService = new EmployeeService();
 const PayrollForm = (props) => {
+
     let intialValue = {
         name: '',
         profileArray: [
@@ -41,11 +42,13 @@ const PayrollForm = (props) => {
             startDate: ''
         }
     }
+
     const [formValue, setForm] = useState(intialValue);
 
     const changeValue = (event) => {
         setForm({ ...formValue, [event.target.name]: event.target.value })
     }
+
     const onCheckChange = (name) => {
         let index = formValue.departmentValue.indexOf(name);
         let checkArray = [...formValue.departmentValue];
@@ -56,9 +59,11 @@ const PayrollForm = (props) => {
             checkArray.push(name);
         setForm({ ...formValue, departmentValue: checkArray });
     }
+
     const getChecked = (name) => {
         return formValue.departmentValue && formValue.departmentValue.includes(name);
     }
+
     const validData = async () => {
         let isError = false;
         let error = {
@@ -91,7 +96,8 @@ const PayrollForm = (props) => {
         }
         await setForm({ ...formValue, error: error });
         return isError;
-    };
+    }
+
     const save = async (event) => {
         event.preventDefault();
         console.log("save");
@@ -100,6 +106,7 @@ const PayrollForm = (props) => {
             console.log('error', formValue);
             return;
         }
+
         let object = {
             "name": formValue.name,
             "profilePic": formValue.profileUrl,
@@ -118,9 +125,11 @@ const PayrollForm = (props) => {
             console.log("err while Add");
         })
     }
+
     const reset = () => {
         setForm({ ...intialValue, id: formValue.id, inUpdate: formValue.isUpdate });
-    };
+    }
+
     return (
         <div className="payroll-main">
             <header className="header-content header">
@@ -262,7 +271,7 @@ const PayrollForm = (props) => {
                             style={{ height: '100%' }}></textarea>
                     </div>
                     <div className="button-content">
-                        <a routerlink="" className="resetButton button cancleButton">Cancle</a>
+                    <Link to="" className="resetButton button cancleButton">Cancle</Link>
                         <div className="submit-reset">
                             <button type="submit" onClick={save} className="button submitButton" id="submitButton">{formValue.isUpdate ? 'Update' : 'Submit'}</button>
                             <button type="button" onClick={reset} className="resetButton button">Reset</button>

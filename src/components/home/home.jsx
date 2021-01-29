@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from "../../assets/logo.png";
-import { Link, withRouter } from "react-router-dom"
+import { Link } from "react-router-dom"
 import addIcon from '../../assets/add-24px.svg';
 import './home.css';
 import EmployeeService from '../../services/EmployeeService';
@@ -12,9 +12,11 @@ export default class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      employeeArray: []
+      employeeArray: [],
+      callUpdate: ''
     }
   }
+  
   componentDidMount() {
     this.getEmployeeData();
   }
@@ -55,7 +57,7 @@ export default class Home extends React.Component {
           <div className="table-main">
             <table id="diplay" className="table">
               <tbody>
-                <Display employeeArray={this.state.employeeArray} callUpdate={this.update}/>
+                <Display employeeArray={this.state.employeeArray} callUpdate={this.update} />
               </tbody>
             </table>
           </div>

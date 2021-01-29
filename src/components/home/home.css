@@ -47,7 +47,6 @@ html body {
 
 .add-button {
     font: normal normal normal 22px/29px Roboto;
-    /* letter-spacing: 0px; */
     color: #ffffff;
     opacity: 1;
     background: #82a70c 0% 0% no-repeat padding-box;
@@ -82,7 +81,6 @@ html body {
     font: normal normal bold 24px/25px Roboto;
     color: #42515f;
     opacity: 1;
-    /* letter-spacing: 0px; */
 }
 
 .emp-count {
